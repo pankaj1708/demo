@@ -11,14 +11,14 @@
                         <div class="col-md-4">
                             <div class="o_banking_card">
                                 <h4 class="mb-3" style="color: var(--banking-primary); font-weight: 600;">
-                                    <i class="fa fa-shield mr-2"></i>KYC Status
+                                    <i class="fa fa-shield mr-2" title="KYC Status"></i>KYC Status
                                 </h4>
                                 <field name="kyc_status" widget="badge" class="mb-3"/>
                                 <div class="row">
                                     <div class="col-12 mb-3">
                                         <label class="o_form_label">Credit Score</label>
                                         <div class="d-flex align-items-center">
-                                            <i class="fa fa-star mr-2" style="color: var(--banking-warning);"></i>
+                                            <i class="fa fa-star mr-2" style="color: var(--banking-warning);" title="Credit Score"></i>
                                             <field name="credit_score" class="h4 mb-0" style="color: var(--banking-warning); font-weight: 700;"/>
                                         </div>
                                     </div>
@@ -31,7 +31,7 @@
                         <div class="col-md-4">
                             <div class="o_banking_card">
                                 <h4 class="mb-3" style="color: var(--banking-secondary); font-weight: 600;">
-                                    <i class="fa fa-user mr-2"></i>Personal Information
+                                    <i class="fa fa-user mr-2" title="Personal Information"></i>Personal Information
                                 </h4>
                                 <field name="date_of_birth" class="mb-3"/>
                                 <field name="gender" class="mb-3"/>
@@ -41,7 +41,7 @@
                         <div class="col-md-4">
                             <div class="o_banking_card">
                                 <h4 class="mb-3" style="color: var(--banking-accent); font-weight: 600;">
-                                    <i class="fa fa-cog mr-2"></i>Preferences
+                                    <i class="fa fa-cog mr-2" title="Preferences"></i>Preferences
                                 </h4>
                                 <field name="communication_preference" class="mb-3"/>
                                 <field name="consent_gdpr" class="mb-3"/>
@@ -54,7 +54,7 @@
                         <div class="col-md-6">
                             <div class="o_banking_card">
                                 <h4 class="mb-3" style="color: var(--banking-info); font-weight: 600;">
-                                    <i class="fa fa-file-text mr-2"></i>KYC & Regulatory Information
+                                    <i class="fa fa-file-text mr-2" title="KYC and Regulatory Information"></i>KYC and Regulatory Information
                                 </h4>
                                 <field name="full_legal_name" class="mb-3"/>
                                 <field name="mother_name" class="mb-3"/>
@@ -70,26 +70,26 @@
                         <div class="col-md-6">
                             <div class="o_banking_card">
                                 <h4 class="mb-3" style="color: var(--banking-success); font-weight: 600;">
-                                    <i class="fa fa-share-alt mr-2"></i>Social Media
+                                    <i class="fa fa-share-alt mr-2" title="Social Media"></i>Social Media
                                 </h4>
                                 <div class="mb-3">
                                     <label class="o_form_label">LinkedIn Profile</label>
                                     <div class="d-flex align-items-center">
-                                        <i class="fa fa-linkedin mr-2" style="color: #0077b5;"></i>
+                                        <i class="fa fa-linkedin mr-2" style="color: #0077b5;" title="LinkedIn"></i>
                                         <field name="linkedin_profile" widget="url" nolabel="1"/>
                                     </div>
                                 </div>
                                 <div class="mb-3">
                                     <label class="o_form_label">Twitter Profile</label>
                                     <div class="d-flex align-items-center">
-                                        <i class="fa fa-twitter mr-2" style="color: #1da1f2;"></i>
+                                        <i class="fa fa-twitter mr-2" style="color: #1da1f2;" title="Twitter"></i>
                                         <field name="twitter_profile" widget="url" nolabel="1"/>
                                     </div>
                                 </div>
                                 <div>
                                     <label class="o_form_label">Facebook Profile</label>
                                     <div class="d-flex align-items-center">
-                                        <i class="fa fa-facebook mr-2" style="color: #1877f2;"></i>
+                                        <i class="fa fa-facebook mr-2" style="color: #1877f2;" title="Facebook"></i>
                                         <field name="facebook_profile" widget="url" nolabel="1"/>
                                     </div>
                                 </div>
@@ -101,7 +101,7 @@
                         <page string="Dashboard" name="dashboard">
                             <div class="mb-3">
                                 <h4 style="color: var(--banking-primary); font-weight: 600;">
-                                    <i class="fa fa-dashboard mr-2"></i>Customer Dashboard
+                                    <i class="fa fa-dashboard mr-2" title="Customer Dashboard"></i>Customer Dashboard
                                 </h4>
                             </div>
                             <field name="dashboard_html" widget="html"/>
@@ -109,7 +109,7 @@
                         <page string="Bank Accounts" name="bank_accounts">
                             <div class="mb-3">
                                 <h4 style="color: var(--banking-secondary); font-weight: 600;">
-                                    <i class="fa fa-bank mr-2"></i>Bank Accounts
+                                    <i class="fa fa-bank mr-2" title="Bank Accounts"></i>Bank Accounts
                                 </h4>
                             </div>
                             <field name="bank_account_ids">
@@ -125,7 +125,7 @@
                         <page string="Loans" name="loans">
                             <div class="mb-3">
                                 <h4 style="color: var(--banking-success); font-weight: 600;">
-                                    <i class="fa fa-money mr-2"></i>Loans
+                                    <i class="fa fa-money mr-2" title="Loans"></i>Loans
                                 </h4>
                             </div>
                             <field name="loan_ids">
@@ -142,7 +142,7 @@
                         <page string="Tickets" name="tickets">
                             <div class="mb-3">
                                 <h4 style="color: var(--banking-warning); font-weight: 600;">
-                                    <i class="fa fa-ticket mr-2"></i>Support Tickets
+                                    <i class="fa fa-ticket mr-2" title="Support Tickets"></i>Support Tickets
                                 </h4>
                             </div>
                             <field name="ticket_ids"/>
@@ -150,7 +150,7 @@
                         <page string="Cards" name="cards">
                             <div class="mb-3">
                                 <h4 style="color: var(--banking-info); font-weight: 600;">
-                                    <i class="fa fa-credit-card mr-2"></i>Banking Cards
+                                    <i class="fa fa-credit-card mr-2" title="Banking Cards"></i>Banking Cards
                                 </h4>
                             </div>
                             <field name="card_ids">
