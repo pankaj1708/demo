@@ -48,7 +48,7 @@
 /* Enhanced Kanban Cards */
 .o_kanban_view .o_kanban_record {
     border-radius: var(--banking-radius-lg);
-    box-shadow: var(--banking-shadow);
+    box-shadow: var(--banking-shadow-md);
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     border: 1px solid var(--banking-gray-200);
     background: #ffffff;
@@ -88,11 +88,11 @@
 }
 
 .o_banking_dashboard .oe_stat_button {
-    background: linear-gradient(135deg, #ffffff 0%, var(--banking-gray-50) 100%);
+    background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
     border-radius: var(--banking-radius-lg);
-    box-shadow: var(--banking-shadow-md);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
     padding: 1.5rem;
-    border: 1px solid var(--banking-gray-200);
+    border: 1px solid #e2e8f0;
     text-align: center;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     position: relative;
@@ -110,10 +110,9 @@
 }
 
 .o_banking_dashboard .oe_stat_button:hover {
-    transform: translateY(-2px);
-    box-shadow: var(--banking-shadow-lg);
-    border-color: var(--banking-primary-light);
-    background: linear-gradient(135deg, #ffffff 0%, var(--banking-primary-light) 5%, #ffffff 100%);
+    transform: translateY(-4px) scale(1.02);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    border-color: #3b82f6;
 }
 
 .o_banking_dashboard .oe_stat_button .o_stat_info {
@@ -123,19 +122,30 @@
 
 .o_banking_dashboard .oe_stat_button .o_stat_value {
     color: var(--banking-primary);
-    font-size: 2rem;
+    font-size: 2.25rem;
     font-weight: 700;
     text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
 }
 
+/* Enhanced Button Hover Effects */
+.o_banking_dashboard .oe_stat_button:hover .o_stat_value {
+    transform: scale(1.1);
+    transition: transform 0.3s ease;
+}
+
+.o_banking_dashboard .oe_stat_button:hover i {
+    transform: scale(1.1) rotate(5deg);
+    transition: transform 0.3s ease;
+}
+
 /* Banking Card Component */
 .o_banking_card {
-    background: linear-gradient(135deg, #ffffff 0%, var(--banking-gray-50) 100%);
+    background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
     border-radius: var(--banking-radius-lg);
-    box-shadow: var(--banking-shadow-md);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
     padding: 1.5rem;
     margin-bottom: 1.5rem;
-    border: 1px solid var(--banking-gray-200);
+    border: 1px solid #e2e8f0;
     position: relative;
     overflow: hidden;
 }
@@ -151,8 +161,8 @@
 }
 
 .o_banking_card:hover {
-    box-shadow: var(--banking-shadow-lg);
-    transform: translateY(-1px);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    transform: translateY(-2px);
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
