@@ -17,7 +17,7 @@
                 <sheet class="o_banking_sheet">
                     <div class="oe_title o_banking_card text-center">
                         <h1 style="color: var(--banking-primary); font-size: 2rem; font-weight: 600;">
-                            <i class="fa fa-envelope mr-2"></i><field name="name" placeholder="Subject..." nolabel="1"/>
+                            <i class="fa fa-envelope mr-2" title="Subject">Subject</i><field name="name" placeholder="Subject..." nolabel="1"/>
                         </h1>
                     </div>
                     
@@ -33,24 +33,24 @@
                         <div class="col-md-4">
                             <div class="o_banking_card">
                                 <h4 class="mb-3" style="color: var(--banking-primary); font-weight: 600;">
-                                    <i class="fa fa-info-circle mr-2"></i>Ticket Details
+                                    <i class="fa fa-info-circle mr-2" title="Ticket Details">Ticket Details</i>Ticket Details
                                 </h4>
                                 <div class="mb-3">
-                                    <label class="o_form_label">Customer</label>
+                                    <div class="o_form_label">Customer</div>
                                     <div class="d-flex align-items-center">
-                                        <i class="fa fa-user mr-2" style="color: var(--banking-secondary);"></i>
+                                        <i class="fa fa-user mr-2" style="color: var(--banking-secondary);" title="Customer">Customer</i>
                                         <field name="partner_id" nolabel="1"/>
                                     </div>
                                 </div>
                                 <div class="mb-3">
-                                    <label class="o_form_label">Assigned To</label>
+                                    <div class="o_form_label">Assigned To</div>
                                     <div class="d-flex align-items-center">
-                                        <i class="fa fa-user-circle mr-2" style="color: var(--banking-info);"></i>
+                                        <i class="fa fa-user-circle mr-2" style="color: var(--banking-info);" title="Assigned To">Assigned To</i>
                                         <field name="user_id" nolabel="1"/>
                                     </div>
                                 </div>
                                 <div>
-                                    <label class="o_form_label">Priority</label>
+                                    <div class="o_form_label">Priority</div>
                                     <field name="priority" widget="priority" nolabel="1"/>
                                 </div>
                             </div>
@@ -103,11 +103,11 @@
                                     </span>
                                 </div>
                                 <div class="mb-2">
-                                    <i class="fa fa-user mr-2" style="color: var(--banking-secondary);"></i>
+                                    <i class="fa fa-user mr-2" style="color: var(--banking-secondary);" title="Customer">Customer</i>
                                     <field name="partner_id"/>
                                 </div>
                                 <div class="mb-3">
-                                    <i class="fa fa-user-circle mr-2" style="color: var(--banking-info);"></i>
+                                    <i class="fa fa-user-circle mr-2" style="color: var(--banking-info);" title="Assigned To">Assigned To</i>
                                     <field name="user_id"/>
                                 </div>
                                 <div class="mt-3 p-2" style="background: var(--banking-gray-50); border-radius: var(--banking-radius); border-left: 4px solid var(--banking-primary);">
