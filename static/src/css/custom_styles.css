@@ -489,3 +489,15 @@ body, .o_web_client {
 ::-webkit-scrollbar-thumb:hover {
     background: var(--gray-400);
 }
+/* Hide More Dropdown */
+.oe_button_box .dropdown,
+.oe_button_box .btn-group,
+.oe_button_box .o_dropdown_more {
+    display: none !important;
+}
+
+/* Hide More button in stat buttons */
+.oe_stat_button + .dropdown,
+.o_form_view .oe_button_box .dropdown-toggle {
+    display: none !important;
+}
