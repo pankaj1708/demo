@@ -51,7 +51,7 @@
                       <field name="estimated_income" widget="monetary" class="mb-3"/>
                       <field name="employment_status" class="mb-3"/>
                       <div class="text-center p-3" style="background: var(--banking-gray-50); border-radius: var(--banking-radius);">
-                        <i class="fa fa-star fa-2x mb-2" style="color: var(--banking-warning);"></i>
+                        <i class="fa fa-star fa-2x mb-2" style="color: var(--banking-warning);" title="Lead Score"></i>
                         <div class="h4 mb-0" style="color: var(--banking-warning); font-weight: 700;">
                           <field name="lead_score"/> / 100
                         </div>
@@ -117,7 +117,7 @@
                       <div class="row">
                         <div class="col-md-6">
                           <div class="d-flex align-items-center mb-3">
-                            <i class="fa fa-money mr-2" style="color: var(--banking-success);"></i>
+                            <i class="fa fa-money mr-2" style="color: var(--banking-success);" title="Requested Loan Amount"></i>
                             <field name="requested_loan_amount" widget="monetary" class="h5 mb-0" style="color: var(--banking-success); font-weight: 600;"/>
                           </div>
                         </div>
@@ -164,7 +164,7 @@
                     <div class="card-body text-center">
                       <field name="is_eligible" widget="boolean" readonly="1"/>
                       <div class="mt-3">
-                        <i class="fa fa-thumbs-up fa-3x" style="color: var(--banking-success);"></i>
+                        <i class="fa fa-thumbs-up fa-3x" style="color: var(--banking-success);" title="Eligibility Status"></i>
                       </div>
                     </div>
                   </div>
