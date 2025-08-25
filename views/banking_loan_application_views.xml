@@ -7,89 +7,330 @@
         <field name="arch" type="xml">
             <form string="Loan Application" class="o_banking_form_view">
                 <header class="o_banking_header">
-                    <field name="state" widget="statusbar" statusbar_visible="draft,submitted,initial_screening,approved,disbursed"/>
-                    <button name="action_submit_application" type="object" string="Submit Application" class="oe_highlight" invisible="state != 'draft'"/>
-                    <button name="action_initial_screening" type="object" string="Initial Screening" class="oe_highlight" invisible="state != 'submitted'"/>
-                    <button name="action_financial_assessment" type="object" string="Financial Assessment" class="oe_highlight" invisible="state != 'initial_screening'"/>
-                    <button name="action_collateral_assessment" type="object" string="Collateral Assessment" class="oe_highlight" invisible="state != 'financial_assessment'"/>
-                    <button name="action_credit_scoring" type="object" string="Credit Scoring" class="oe_highlight" invisible="state != 'collateral_assessment'"/>
-                    <button name="action_internal_approvals" type="object" string="Internal Approvals" class="oe_highlight" invisible="state != 'credit_scoring'"/>
-                    <button name="action_approve" type="object" string="Approve" class="oe_highlight" invisible="state != 'internal_approvals'"/>
-                    <button name="action_sanction" type="object" string="Sanction" class="oe_highlight" invisible="state != 'approved'"/>
-                    <button name="action_disburse" type="object" string="Disburse" class="oe_highlight" invisible="state != 'sanctioned'"/>
-                    <button name="action_reject" type="object" string="Reject" invisible="state in ('rejected', 'cancelled', 'disbursed')"/>
-                    <button name="action_cancel" type="object" string="Cancel" invisible="state in ('rejected', 'cancelled', 'disbursed')"/>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <h2 class="mb-0 text-white">
+                            <i class="fa fa-file-text-o mr-2"></i>Loan Application
+                        </h2>
+                        <field name="state" widget="statusbar" statusbar_visible="draft,submitted,initial_screening,approved,disbursed" class="flex-grow-1 ml-4"/>
+                    </div>
+                    <div class="mt-3">
+                        <button name="action_submit_application" type="object" string="Submit Application" class="btn btn-success mr-2" invisible="state != 'draft'">
+                            <i class="fa fa-paper-plane mr-1"></i>Submit Application
+                        </button>
+                        <button name="action_initial_screening" type="object" string="Initial Screening" class="btn btn-info mr-2" invisible="state != 'submitted'">
+                            <i class="fa fa-search mr-1"></i>Initial Screening
+                        </button>
+                        <button name="action_financial_assessment" type="object" string="Financial Assessment" class="btn btn-warning mr-2" invisible="state != 'initial_screening'">
+                            <i class="fa fa-calculator mr-1"></i>Financial Assessment
+                        </button>
+                        <button name="action_collateral_assessment" type="object" string="Collateral Assessment" class="btn btn-warning mr-2" invisible="state != 'financial_assessment'">
+                            <i class="fa fa-home mr-1"></i>Collateral Assessment
+                        </button>
+                        <button name="action_credit_scoring" type="object" string="Credit Scoring" class="btn btn-warning mr-2" invisible="state != 'collateral_assessment'">
+                            <i class="fa fa-star mr-1"></i>Credit Scoring
+                        </button>
+                        <button name="action_internal_approvals" type="object" string="Internal Approvals" class="btn btn-warning mr-2" invisible="state != 'credit_scoring'">
+                            <i class="fa fa-users mr-1"></i>Internal Approvals
+                        </button>
+                        <button name="action_approve" type="object" string="Approve" class="btn btn-success mr-2" invisible="state != 'internal_approvals'">
+                            <i class="fa fa-check mr-1"></i>Approve
+                        </button>
+                        <button name="action_sanction" type="object" string="Sanction" class="btn btn-success mr-2" invisible="state != 'approved'">
+                            <i class="fa fa-gavel mr-1"></i>Sanction
+                        </button>
+                        <button name="action_disburse" type="object" string="Disburse" class="btn btn-primary mr-2" invisible="state != 'sanctioned'">
+                            <i class="fa fa-money mr-1"></i>Disburse
+                        </button>
+                        <button name="action_reject" type="object" string="Reject" class="btn btn-danger mr-2" invisible="state in ('rejected', 'cancelled', 'disbursed')">
+                            <i class="fa fa-times mr-1"></i>Reject
+                        </button>
+                        <button name="action_cancel" type="object" string="Cancel" class="btn btn-secondary" invisible="state in ('rejected', 'cancelled', 'disbursed')">
+                            <i class="fa fa-ban mr-1"></i>Cancel
+                        </button>
+                    </div>
                 </header>
                 <sheet class="o_banking_sheet">
-                    <div class="oe_title o_banking_card">
-                        <h1><field name="application_number"/></h1>
+                    <div class="oe_title o_banking_card text-center">
+                        <h1 style="color: var(--banking-primary); font-size: 2.5rem; font-weight: 700;">
+                            <i class="fa fa-hashtag mr-2"></i><field name="application_number"/>
+                        </h1>
+                        <p class="text-muted" style="font-size: 1.1rem;">Loan Application Details</p>
                     </div>
-                    <group class="o_banking_card">
-                        <group>
-                            <field name="partner_id"/>
-                            <field name="loan_type"/>
-                            <field name="loan_product"/>
-                            <field name="requested_amount" widget="monetary" options="{'currency_field': 'currency_id'}"/>
-                            <field name="currency_id" invisible="1"/>
-                        </group>
-                        <group>
-                            <field name="tenure"/>
-                            <field name="repayment_frequency"/>
-                            <field name="proposed_collateral_type"/>
-                            <field name="collateral_valuation" widget="monetary" options="{'currency_field': 'currency_id'}"/>
-                            <field name="repayment_source"/>
-                        </group>
-                    </group>
+                    
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="o_banking_card">
+                                <h4 class="mb-3" style="color: var(--banking-primary); font-weight: 600;">
+                                    <i class="fa fa-user mr-2"></i>Applicant Information
+                                </h4>
+                                <field name="partner_id" class="mb-3"/>
+                                <field name="loan_type" class="mb-3"/>
+                                <field name="loan_product" class="mb-3"/>
+                                <div class="row">
+                                    <div class="col-12">
+                                        <label class="o_form_label">Requested Amount</label>
+                                        <div class="d-flex align-items-center">
+                                            <i class="fa fa-money mr-2" style="color: var(--banking-success);"></i>
+                                            <field name="requested_amount" widget="monetary" options="{'currency_field': 'currency_id'}" class="h4 mb-0" style="color: var(--banking-success); font-weight: 700;"/>
+                                        </div>
+                                    </div>
+                                </div>
+                                <field name="currency_id" invisible="1"/>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="o_banking_card">
+                                <h4 class="mb-3" style="color: var(--banking-secondary); font-weight: 600;">
+                                    <i class="fa fa-cogs mr-2"></i>Loan Details
+                                </h4>
+                                <field name="tenure" class="mb-3"/>
+                                <field name="repayment_frequency" class="mb-3"/>
+                                <field name="proposed_collateral_type" class="mb-3"/>
+                                <div class="row">
+                                    <div class="col-12">
+                                        <label class="o_form_label">Collateral Valuation</label>
+                                        <div class="d-flex align-items-center">
+                                            <i class="fa fa-home mr-2" style="color: var(--banking-warning);"></i>
+                                            <field name="collateral_valuation" widget="monetary" options="{'currency_field': 'currency_id'}" class="h5 mb-0" style="color: var(--banking-warning); font-weight: 600;"/>
+                                        </div>
+                                    </div>
+                                </div>
+                                <field name="repayment_source" class="mt-3"/>
+                            </div>
+                        </div>
+                    </div>
 
                     <notebook class="o_banking_card">
                         <page string="Supporting Documents" name="supporting_documents">
+                            <div class="mb-3">
+                                <h5 style="color: var(--banking-gray-700); font-weight: 600;">
+                                    <i class="fa fa-files-o mr-2"></i>Required Documentation
+                                </h5>
+                            </div>
                             <field name="supporting_document_ids">
-                                <tree editable="bottom">
-                                    <field name="name"/>
-                                    <field name="document_type"/>
-                                    <field name="document" widget="binary" filename="name"/>
+                                <tree editable="bottom" class="table-striped">
+                                    <field name="name" string="Document Name"/>
+                                    <field name="document_type" string="Type"/>
+                                    <field name="document" widget="binary" filename="name" string="File"/>
                                 </tree>
                             </field>
                         </page>
                         <page string="Financial Assessment" name="financial_assessment">
-                            <group>
-                                <group>
-                                    <field name="monthly_net_income" widget="monetary" options="{'currency_field': 'currency_id'}"/>
-                                    <field name="existing_loan_repayments" widget="monetary" options="{'currency_field': 'currency_id'}"/>
-                                    <field name="other_household_expenses" widget="monetary" options="{'currency_field': 'currency_id'}"/>
-                                </group>
-                                <group>
-                                    <field name="total_disposable_income" widget="monetary" options="{'currency_field': 'currency_id'}"/>
-                                    <field name="recommended_eligible_loan_amount" widget="monetary" options="{'currency_field': 'currency_id'}"/>
-                                    <field name="debt_to_income_ratio"/>
-                                    <field name="debt_service_ratio"/>
-                                    <field name="loan_to_value_ratio"/>
-                                </group>
-                            </group>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="card" style="border: 1px solid var(--banking-gray-200); border-radius: var(--banking-radius);">
+                                        <div class="card-header" style="background: linear-gradient(135deg, var(--banking-primary) 0%, var(--banking-primary-dark) 100%); color: white;">
+                                            <h5 class="mb-0"><i class="fa fa-calculator mr-2"></i>Income & Expenses</h5>
+                                        </div>
+                                        <div class="card-body">
+                                            <field name="monthly_net_income" widget="monetary" options="{'currency_field': 'currency_id'}" class="mb-3"/>
+                                            <field name="existing_loan_repayments" widget="monetary" options="{'currency_field': 'currency_id'}" class="mb-3"/>
+                                            <field name="other_household_expenses" widget="monetary" options="{'currency_field': 'currency_id'}"/>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="card" style="border: 1px solid var(--banking-gray-200); border-radius: var(--banking-radius);">
+                                        <div class="card-header" style="background: linear-gradient(135deg, var(--banking-secondary) 0%, #047857 100%); color: white;">
+                                            <h5 class="mb-0"><i class="fa fa-chart-line mr-2"></i>Assessment Results</h5>
+                                        </div>
+                                        <div class="card-body">
+                                            <field name="total_disposable_income" widget="monetary" options="{'currency_field': 'currency_id'}" class="mb-3"/>
+                                            <field name="recommended_eligible_loan_amount" widget="monetary" options="{'currency_field': 'currency_id'}" class="mb-3"/>
+                                            <div class="row">
+                                                <div class="col-4 text-center">
+                                                    <div class="p-2" style="background: var(--banking-gray-50); border-radius: var(--banking-radius);">
+                                                        <small class="text-muted">DTI Ratio</small>
+                                                        <div class="h6 mb-0" style="color: var(--banking-primary);"><field name="debt_to_income_ratio"/>%</div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-4 text-center">
+                                                    <div class="p-2" style="background: var(--banking-gray-50); border-radius: var(--banking-radius);">
+                                                        <small class="text-muted">DSR Ratio</small>
+                                                        <div class="h6 mb-0" style="color: var(--banking-secondary);"><field name="debt_service_ratio"/>%</div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-4 text-center">
+                                                    <div class="p-2" style="background: var(--banking-gray-50); border-radius: var(--banking-radius);">
+                                                        <small class="text-muted">LTV Ratio</small>
+                                                        <div class="h6 mb-0" style="color: var(--banking-warning);"><field name="loan_to_value_ratio"/>%</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </page>
                         <page string="Guarantor Information" name="guarantor_information">
+                            <div class="mb-3">
+                                <h5 style="color: var(--banking-gray-700); font-weight: 600;">
+                                    <i class="fa fa-users mr-2"></i>Guarantor Details
+                                </h5>
+                            </div>
                             <field name="guarantor_ids">
-                                <tree editable="bottom">
-                                    <field name="name"/>
-                                    <field name="identification_number"/>
-                                    <field name="income_source"/>
-                                    <field name="relationship_with_applicant"/>
+                                <tree editable="bottom" class="table-striped">
+                                    <field name="name" string="Full Name"/>
+                                    <field name="identification_number" string="ID Number"/>
+                                    <field name="income_source" string="Income Source"/>
+                                    <field name="relationship_with_applicant" string="Relationship"/>
                                 </tree>
                             </field>
                         </page>
                         <page string="Approval &amp; Sanction" name="approval_sanction">
-                            <group>
-                                <group>
-                                    <field name="approved_loan_amount" widget="monetary" options="{'currency_field': 'currency_id'}"/>
-                                    <field name="approved_tenure"/>
-                                    <field name="interest_rate"/>
-                                    <field name="interest_type"/>
-                                </group>
-                                <group>
-                                    <field name="repayment_schedule_generated"/>
-                                </group>
-                            </group>
-                            <group string="Conditions Precedent to Disbursement">
+                            <div class="row">
+                                <div class="col-md-8">
+                                    <div class="card" style="border: 1px solid var(--banking-gray-200); border-radius: var(--banking-radius);">
+                                        <div class="card-header" style="background: linear-gradient(135deg, var(--banking-success) 0%, #047857 100%); color: white;">
+                                            <h5 class="mb-0"><i class="fa fa-check-circle mr-2"></i>Approval Details</h5>
+                                        </div>
+                                        <div class="card-body">
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <field name="approved_loan_amount" widget="monetary" options="{'currency_field': 'currency_id'}" class="mb-3"/>
+                                                    <field name="approved_tenure" class="mb-3"/>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <field name="interest_rate" class="mb-3"/>
+                                                    <field name="interest_type" class="mb-3"/>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="card" style="border: 1px solid var(--banking-gray-200); border-radius: var(--banking-radius);">
+                                        <div class="card-header" style="background: linear-gradient(135deg, var(--banking-info) 0%, #0284c7 100%); color: white;">
+                                            <h5 class="mb-0"><i class="fa fa-calendar mr-2"></i>Schedule</h5>
+                                        </div>
+                                        <div class="card-body">
+                                            <field name="repayment_schedule_generated" nolabel="1"/>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="mt-4">
+                                <div class="card" style="border: 1px solid var(--banking-gray-200); border-radius: var(--banking-radius);">
+                                    <div class="card-header" style="background: linear-gradient(135deg, var(--banking-warning) 0%, #d97706 100%); color: white;">
+                                        <h5 class="mb-0"><i class="fa fa-exclamation-triangle mr-2"></i>Conditions Precedent to Disbursement</h5>
+                                    </div>
+                                    <div class="card-body">
+                                        <field name="conditions_precedent_ids">
+                                            <tree editable="bottom" class="table-striped">
+                                                <field name="name" string="Condition"/>
+                                                <field name="is_met" string="Status" widget="boolean_toggle"/>
+                                            </tree>
+                                        </field>
+                                    </div>
+                                </div>
+                            </div>
+                        </page>
+                        <page string="Disbursement Details" name="disbursement_details">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="card" style="border: 1px solid var(--banking-gray-200); border-radius: var(--banking-radius);">
+                                        <div class="card-header" style="background: linear-gradient(135deg, var(--banking-primary) 0%, var(--banking-primary-dark) 100%); color: white;">
+                                            <h5 class="mb-0"><i class="fa fa-university mr-2"></i>Account Details</h5>
+                                        </div>
+                                        <div class="card-body">
+                                            <field name="loan_account_number" class="mb-3"/>
+                                            <field name="disbursement_date" class="mb-3"/>
+                                            <div class="d-flex align-items-center">
+                                                <i class="fa fa-money mr-2" style="color: var(--banking-success);"></i>
+                                                <field name="disbursement_amount" widget="monetary" options="{'currency_field': 'currency_id'}" class="h5 mb-0" style="color: var(--banking-success); font-weight: 600;"/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="card" style="border: 1px solid var(--banking-gray-200); border-radius: var(--banking-radius);">
+                                        <div class="card-header" style="background: linear-gradient(135deg, var(--banking-secondary) 0%, #047857 100%); color: white;">
+                                            <h5 class="mb-0"><i class="fa fa-calendar-check-o mr-2"></i>Repayment Schedule</h5>
+                                        </div>
+                                        <div class="card-body">
+                                            <field name="repayment_start_date" class="mb-3"/>
+                                            <field name="next_due_date" class="mb-3"/>
+                                            <div class="d-flex align-items-center">
+                                                <i class="fa fa-credit-card mr-2" style="color: var(--banking-info);"></i>
+                                                <field name="emi_installment_amount" widget="monetary" options="{'currency_field': 'currency_id'}" class="h5 mb-0" style="color: var(--banking-info); font-weight: 600;"/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Enhanced Kanban View -->
+    <record id="banking_loan_application_view_kanban" model="ir.ui.view">
+        <field name="name">x_banking.loan.application.view.kanban</field>
+        <field name="model">x_banking.loan.application</field>
+        <field name="arch" type="xml">
+            <kanban default_group_by="state" class="o_banking_kanban_record">
+                <field name="application_number"/>
+                <field name="partner_id"/>
+                <field name="loan_type"/>
+                <field name="requested_amount"/>
+                <field name="currency_id" invisible="1"/>
+                <field name="state"/>
+                <templates>
+                    <t t-name="kanban-box">
+                        <div t-attf-class="oe_kanban_global_click" style="min-height: 200px;">
+                            <div class="oe_kanban_details p-3">
+                                <div class="d-flex justify-content-between align-items-start mb-3">
+                                    <strong class="h5 mb-0" style="color: var(--banking-primary);">
+                                        <i class="fa fa-hashtag mr-1"></i><field name="application_number"/>
+                                    </strong>
+                                    <span t-attf-class="badge badge-#{record.state.raw_value === 'approved' ? 'success' : record.state.raw_value === 'rejected' ? 'danger' : record.state.raw_value === 'disbursed' ? 'primary' : 'warning'}" style="font-size: 0.75rem;">
+                                        <t t-esc="record.state.value"/>
+                                    </span>
+                                </div>
+                                <div class="mb-2">
+                                    <i class="fa fa-user mr-2" style="color: var(--banking-secondary);"></i>
+                                    <field name="partner_id"/>
+                                </div>
+                                <div class="mb-2">
+                                    <i class="fa fa-tag mr-2" style="color: var(--banking-accent);"></i>
+                                    <field name="loan_type"/>
+                                </div>
+                                <div class="mt-3 p-2" style="background: var(--banking-gray-50); border-radius: var(--banking-radius); border-left: 4px solid var(--banking-success);">
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <span class="text-muted small">Requested Amount</span>
+                                        <strong style="color: var(--banking-success); font-size: 1.1rem;">
+                                            <field name="requested_amount" widget="monetary" options="{'currency_field': 'currency_id'}"/>
+                                        </strong>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <!-- Enhanced Tree View -->
+    <record id="banking_loan_application_view_tree" model="ir.ui.view">
+        <field name="name">x_banking.loan.application.view.tree</field>
+        <field name="model">x_banking.loan.application</field>
+        <field name="arch" type="xml">
+            <tree string="Loan Applications" class="o_banking_list_view">
+                <field name="application_number" string="Application #"/>
+                <field name="partner_id" string="Applicant"/>
+                <field name="loan_type" string="Type"/>
+                <field name="requested_amount" widget="monetary" string="Amount"/>
+                <field name="state" widget="badge" decoration-success="state == 'approved'" decoration-info="state == 'disbursed'" decoration-warning="state in ('submitted', 'initial_screening')" decoration-danger="state == 'rejected'"/>
+                <field name="currency_id" invisible="1"/>
+            </tree>
+        </field>
+    </record>
+</odoo>
+
                                 <field name="conditions_precedent_ids">
                                     <tree editable="bottom">
                                         <field name="name"/>

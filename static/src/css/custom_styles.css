@@ -1,84 +1,551 @@
-Add your custom CSS here .o_form_view .o_form_sheet_bg>.o_form_sheet {
-    background-color: #f0f4f7;
+/* Banking CRM Custom Styles - Modern UI Design */
+
+/* Root Variables for Consistent Theming */
+:root {
+    --banking-primary: #1e40af;
+    --banking-primary-light: #3b82f6;
+    --banking-primary-dark: #1e3a8a;
+    --banking-secondary: #059669;
+    --banking-accent: #f59e0b;
+    --banking-danger: #dc2626;
+    --banking-warning: #f59e0b;
+    --banking-success: #059669;
+    --banking-info: #0ea5e9;
+    
+    --banking-gray-50: #f9fafb;
+    --banking-gray-100: #f3f4f6;
+    --banking-gray-200: #e5e7eb;
+    --banking-gray-300: #d1d5db;
+    --banking-gray-400: #9ca3af;
+    --banking-gray-500: #6b7280;
+    --banking-gray-600: #4b5563;
+    --banking-gray-700: #374151;
+    --banking-gray-800: #1f2937;
+    --banking-gray-900: #111827;
+    
+    --banking-shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    --banking-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+    --banking-shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    --banking-shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    --banking-shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    
+    --banking-radius-sm: 0.375rem;
+    --banking-radius: 0.5rem;
+    --banking-radius-md: 0.75rem;
+    --banking-radius-lg: 1rem;
+    --banking-radius-xl: 1.5rem;
 }
 
+/* Global Form Styling */
+.o_form_view .o_form_sheet_bg > .o_form_sheet {
+    background: linear-gradient(135deg, var(--banking-gray-50) 0%, #ffffff 100%);
+    border-radius: var(--banking-radius-lg);
+    box-shadow: var(--banking-shadow-lg);
+    padding: 2rem;
+    margin: 1rem;
+}
+
+/* Enhanced Kanban Cards */
 .o_kanban_view .o_kanban_record {
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease;
+    border-radius: var(--banking-radius-lg);
+    box-shadow: var(--banking-shadow);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 1px solid var(--banking-gray-200);
+    background: #ffffff;
+    overflow: hidden;
+    position: relative;
+}
+
+.o_kanban_view .o_kanban_record::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--banking-primary) 0%, var(--banking-secondary) 100%);
 }
 
 .o_kanban_view .o_kanban_record:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    transform: translateY(-4px) scale(1.02);
+    box-shadow: var(--banking-shadow-xl);
+    border-color: var(--banking-primary-light);
 }
 
+/* Banking Dashboard Styling */
 .o_banking_dashboard {
-    background-color: #f5f5f5;
-    padding: 20px;
+    background: linear-gradient(135deg, var(--banking-gray-50) 0%, #ffffff 100%);
+    padding: 2rem;
+    border-radius: var(--banking-radius-xl);
+    min-height: 100vh;
 }
 
 .o_banking_dashboard .oe_button_box {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    margin-bottom: 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
 }
 
 .o_banking_dashboard .oe_stat_button {
-    background-color: #ffffff;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    padding: 15px;
-    width: calc(33% - 10px);
-    margin-bottom: 10px;
-    text-align: left;
+    background: linear-gradient(135deg, #ffffff 0%, var(--banking-gray-50) 100%);
+    border-radius: var(--banking-radius-lg);
+    box-shadow: var(--banking-shadow-md);
+    padding: 1.5rem;
+    border: 1px solid var(--banking-gray-200);
+    text-align: center;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
 }
 
+.o_banking_dashboard .oe_stat_button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--banking-primary) 0%, var(--banking-secondary) 100%);
+}
+
+.o_banking_dashboard .oe_stat_button:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--banking-shadow-lg);
+    border-color: var(--banking-primary-light);
+    background: linear-gradient(135deg, #ffffff 0%, var(--banking-primary-light) 5%, #ffffff 100%);
+}
+
+.o_banking_dashboard .oe_stat_button .o_stat_info {
+    color: var(--banking-gray-700);
+    font-weight: 600;
+}
+
+.o_banking_dashboard .oe_stat_button .o_stat_value {
+    color: var(--banking-primary);
+    font-size: 2rem;
+    font-weight: 700;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+/* Banking Card Component */
 .o_banking_card {
-    background-color: #ffffff;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-    margin-bottom: 20px;
+    background: linear-gradient(135deg, #ffffff 0%, var(--banking-gray-50) 100%);
+    border-radius: var(--banking-radius-lg);
+    box-shadow: var(--banking-shadow-md);
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    border: 1px solid var(--banking-gray-200);
+    position: relative;
+    overflow: hidden;
 }
 
+.o_banking_card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--banking-primary) 0%, var(--banking-secondary) 100%);
+}
+
+.o_banking_card:hover {
+    box-shadow: var(--banking-shadow-lg);
+    transform: translateY(-1px);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Notebook Container */
 .o_banking_notebook_container {
     width: 100%;
-    background-color: #f5f5f5;
-    padding: 20px;
-    border-radius: 8px;
+    background: linear-gradient(135deg, var(--banking-gray-50) 0%, #ffffff 100%);
+    padding: 1.5rem;
+    border-radius: var(--banking-radius-lg);
+    box-shadow: var(--banking-shadow);
+    border: 1px solid var(--banking-gray-200);
 }
 
-.o_banking_header {
-    background-color: #f5f5f5;
-    padding: 10px;
-    border-bottom: 1px solid #e0e0e0;
+.o_banking_notebook_container .nav-tabs {
+    border-bottom: 2px solid var(--banking-gray-200);
+    margin-bottom: 1.5rem;
 }
 
-.o_banking_sheet {
-    background-color: #f5f5f5;
-    padding: 20px;
+.o_banking_notebook_container .nav-tabs .nav-link {
+    border: none;
+    border-radius: var(--banking-radius) var(--banking-radius) 0 0;
+    padding: 0.75rem 1.5rem;
+    color: var(--banking-gray-600);
+    font-weight: 500;
+    transition: all 0.3s ease;
+    position: relative;
 }
 
-.o_banking_kanban_record .oe_kanban_global_click {
+.o_banking_notebook_container .nav-tabs .nav-link:hover {
+    color: var(--banking-primary);
+    background-color: var(--banking-gray-50);
+}
+
+.o_banking_notebook_container .nav-tabs .nav-link.active {
+    color: var(--banking-primary);
     background-color: #ffffff;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    padding: 15px;
-    margin-bottom: 10px;
+    border-bottom: 2px solid var(--banking-primary);
+    font-weight: 600;
 }
 
+/* Header Styling */
+.o_banking_header {
+    background: linear-gradient(135deg, var(--banking-primary) 0%, var(--banking-primary-dark) 100%);
+    padding: 1rem 1.5rem;
+    border-radius: var(--banking-radius-lg) var(--banking-radius-lg) 0 0;
+    color: white;
+    box-shadow: var(--banking-shadow);
+}
+
+.o_banking_header .o_statusbar_status {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: var(--banking-radius);
+    padding: 0.5rem;
+}
+
+.o_banking_header .o_statusbar_status .o_arrow_button {
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    border-radius: var(--banking-radius-sm);
+    margin: 0 0.25rem;
+    transition: all 0.3s ease;
+}
+
+.o_banking_header .o_statusbar_status .o_arrow_button:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: translateY(-1px);
+}
+
+.o_banking_header .o_statusbar_status .o_arrow_button.btn-primary {
+    background: var(--banking-secondary);
+    box-shadow: var(--banking-shadow-sm);
+}
+
+/* Sheet Styling */
+.o_banking_sheet {
+    background: linear-gradient(135deg, var(--banking-gray-50) 0%, #ffffff 100%);
+    padding: 2rem;
+    border-radius: var(--banking-radius-lg);
+    box-shadow: var(--banking-shadow-lg);
+    margin: 1rem;
+}
+
+/* Kanban Record Styling */
+.o_banking_kanban_record .oe_kanban_global_click {
+    background: linear-gradient(135deg, #ffffff 0%, var(--banking-gray-50) 100%);
+    border-radius: var(--banking-radius-lg);
+    box-shadow: var(--banking-shadow);
+    padding: 1.5rem;
+    margin-bottom: 1rem;
+    border: 1px solid var(--banking-gray-200);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.o_banking_kanban_record .oe_kanban_global_click::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--banking-primary) 0%, var(--banking-secondary) 100%);
+}
+
+.o_banking_kanban_record .oe_kanban_global_click:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--banking-shadow-lg);
+    border-color: var(--banking-primary-light);
+}
+
+/* List View Styling */
 .o_banking_list_view .o_list_view {
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: var(--banking-radius-lg);
+    box-shadow: var(--banking-shadow-md);
+    border: 1px solid var(--banking-gray-200);
+    overflow: hidden;
+    background: #ffffff;
 }
 
+.o_banking_list_view .o_list_view thead {
+    background: linear-gradient(135deg, var(--banking-primary) 0%, var(--banking-primary-dark) 100%);
+    color: white;
+}
+
+.o_banking_list_view .o_list_view thead th {
+    border-bottom: none;
+    padding: 1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.875rem;
+    letter-spacing: 0.05em;
+}
+
+.o_banking_list_view .o_list_view tbody tr {
+    transition: all 0.2s ease;
+    border-bottom: 1px solid var(--banking-gray-100);
+}
+
+.o_banking_list_view .o_list_view tbody tr:hover {
+    background-color: var(--banking-gray-50);
+    transform: scale(1.01);
+}
+
+.o_banking_list_view .o_list_view tbody td {
+    padding: 0.75rem 1rem;
+    vertical-align: middle;
+}
+
+/* Form View Styling */
 .o_banking_form_view .o_form_sheet_bg {
-    background-color: #f5f5f5;
+    background: linear-gradient(135deg, var(--banking-gray-50) 0%, #ffffff 100%);
+    min-height: 100vh;
 }
 
+/* Tree View Styling */
 .o_banking_tree_view .o_list_view {
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: var(--banking-radius-lg);
+    box-shadow: var(--banking-shadow-md);
+    border: 1px solid var(--banking-gray-200);
+    overflow: hidden;
+}
+
+/* Button Styling */
+.btn-primary {
+    background: linear-gradient(135deg, var(--banking-primary) 0%, var(--banking-primary-dark) 100%);
+    border: none;
+    border-radius: var(--banking-radius);
+    padding: 0.75rem 1.5rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: var(--banking-shadow);
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--banking-shadow-lg);
+    background: linear-gradient(135deg, var(--banking-primary-light) 0%, var(--banking-primary) 100%);
+}
+
+.btn-secondary {
+    background: linear-gradient(135deg, var(--banking-gray-100) 0%, var(--banking-gray-200) 100%);
+    border: 1px solid var(--banking-gray-300);
+    color: var(--banking-gray-700);
+    border-radius: var(--banking-radius);
+    padding: 0.75rem 1.5rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.btn-secondary:hover {
+    background: linear-gradient(135deg, var(--banking-gray-200) 0%, var(--banking-gray-300) 100%);
+    transform: translateY(-1px);
+    box-shadow: var(--banking-shadow);
+}
+
+/* Input Field Styling */
+.o_input, .form-control {
+    border: 2px solid var(--banking-gray-200);
+    border-radius: var(--banking-radius);
+    padding: 0.75rem 1rem;
+    transition: all 0.3s ease;
+    background-color: #ffffff;
+}
+
+.o_input:focus, .form-control:focus {
+    border-color: var(--banking-primary);
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+    outline: none;
+}
+
+/* Label Styling */
+.o_form_label {
+    color: var(--banking-gray-700);
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+    font-size: 0.875rem;
+    letter-spacing: 0.05em;
+}
+
+/* Status Badge Styling */
+.badge {
+    border-radius: var(--banking-radius);
+    padding: 0.5rem 1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    letter-spacing: 0.05em;
+}
+
+.badge-success {
+    background: linear-gradient(135deg, var(--banking-success) 0%, #047857 100%);
+    color: white;
+}
+
+.badge-warning {
+    background: linear-gradient(135deg, var(--banking-warning) 0%, #d97706 100%);
+    color: white;
+}
+
+.badge-danger {
+    background: linear-gradient(135deg, var(--banking-danger) 0%, #b91c1c 100%);
+    color: white;
+}
+
+.badge-info {
+    background: linear-gradient(135deg, var(--banking-info) 0%, #0284c7 100%);
+    color: white;
+}
+
+/* Monetary Field Styling */
+.o_field_monetary {
+    font-weight: 700;
+    font-size: 1.125rem;
+    color: var(--banking-primary);
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+/* Priority Indicators */
+.o_priority_star {
+    color: var(--banking-warning);
+    filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.1));
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .o_banking_dashboard .oe_button_box {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    
+    .o_banking_card {
+        padding: 1rem;
+        margin-bottom: 1rem;
+    }
+    
+    .o_banking_sheet {
+        padding: 1rem;
+        margin: 0.5rem;
+    }
+    
+    .o_form_view .o_form_sheet_bg > .o_form_sheet {
+        padding: 1rem;
+        margin: 0.5rem;
+    }
+}
+
+/* Animation Classes */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fade-in-up {
+    animation: fadeInUp 0.6s ease-out;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--banking-gray-100);
+    border-radius: var(--banking-radius);
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(135deg, var(--banking-primary) 0%, var(--banking-secondary) 100%);
+    border-radius: var(--banking-radius);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(135deg, var(--banking-primary-dark) 0%, var(--banking-primary) 100%);
+}
+
+/* Loading States */
+.o_loading {
+    position: relative;
+    overflow: hidden;
+}
+
+.o_loading::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+    animation: loading 1.5s infinite;
+}
+
+@keyframes loading {
+    0% { left: -100%; }
+    100% { left: 100%; }
+}
+
+/* Enhanced Focus States */
+.o_input:focus-within,
+.form-control:focus-within,
+.o_field_widget:focus-within {
+    transform: translateY(-1px);
+    box-shadow: var(--banking-shadow-md);
+}
+
+/* Improved Typography */
+h1, h2, h3, h4, h5, h6 {
+    color: var(--banking-gray-800);
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+.o_form_view h1 {
+    color: var(--banking-primary);
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+/* Enhanced Table Styling */
+.table {
+    border-collapse: separate;
+    border-spacing: 0;
+    border-radius: var(--banking-radius-lg);
+    overflow: hidden;
+    box-shadow: var(--banking-shadow);
+}
+
+.table thead th {
+    background: linear-gradient(135deg, var(--banking-primary) 0%, var(--banking-primary-dark) 100%);
+    color: white;
+    border: none;
+    padding: 1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.875rem;
+    letter-spacing: 0.05em;
+}
+
+.table tbody td {
+    border-top: 1px solid var(--banking-gray-200);
+    padding: 0.75rem 1rem;
+    vertical-align: middle;
+}
+
+.table tbody tr:hover {
+    background-color: var(--banking-gray-50);
 }

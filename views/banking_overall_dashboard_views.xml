@@ -7,64 +7,186 @@
         <field name="arch" type="xml">
             <form string="Overall Banking Dashboard" create="false" edit="false" delete="false" class="o_banking_form_view">
                 <sheet>
-                    <div class="o_banking_dashboard">
+                    <div class="o_banking_dashboard fade-in-up">
+                        <div class="row mb-4">
+                            <div class="col-12">
+                                <h1 class="text-center mb-0" style="color: var(--banking-primary); font-size: 2.5rem; font-weight: 700; text-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+                                    <i class="fa fa-bank mr-3"></i>Banking Dashboard
+                                </h1>
+                                <p class="text-center text-muted mt-2" style="font-size: 1.1rem;">Comprehensive overview of your banking operations</p>
+                            </div>
+                        </div>
+                        
                         <div class="oe_button_box" name="button_box">
-                            <button class="oe_stat_button" icon="fa-users" type="object" name="action_view_leads">
-                                <field name="total_leads" widget="statinfo" string="Total Leads"/>
+                            <button class="oe_stat_button fade-in-up" icon="fa-users" type="object" name="action_view_leads" style="animation-delay: 0.1s;">
+                                <div class="text-center">
+                                    <i class="fa fa-users fa-2x mb-2" style="color: var(--banking-primary);"></i>
+                                    <field name="total_leads" widget="statinfo" string="Total Leads"/>
+                                </div>
                             </button>
-                            <button class="oe_stat_button" icon="fa-user" type="object" name="action_view_customers">
-                                <field name="total_customers" widget="statinfo" string="Total Customers"/>
+                            <button class="oe_stat_button fade-in-up" icon="fa-user" type="object" name="action_view_customers" style="animation-delay: 0.2s;">
+                                <div class="text-center">
+                                    <i class="fa fa-user fa-2x mb-2" style="color: var(--banking-secondary);"></i>
+                                    <field name="total_customers" widget="statinfo" string="Total Customers"/>
+                                </div>
                             </button>
-                            <button class="oe_stat_button" icon="fa-bank" type="object" name="action_view_bank_accounts">
-                                <field name="total_bank_accounts" widget="statinfo" string="Total Accounts"/>
+                            <button class="oe_stat_button fade-in-up" icon="fa-bank" type="object" name="action_view_bank_accounts" style="animation-delay: 0.3s;">
+                                <div class="text-center">
+                                    <i class="fa fa-bank fa-2x mb-2" style="color: var(--banking-accent);"></i>
+                                    <field name="total_bank_accounts" widget="statinfo" string="Total Accounts"/>
+                                </div>
                             </button>
-                            <button class="oe_stat_button" icon="fa-money" type="object" name="action_view_loans">
-                                <field name="total_loans" widget="statinfo" string="Total Loans"/>
+                            <button class="oe_stat_button fade-in-up" icon="fa-money" type="object" name="action_view_loans" style="animation-delay: 0.4s;">
+                                <div class="text-center">
+                                    <i class="fa fa-money fa-2x mb-2" style="color: var(--banking-success);"></i>
+                                    <field name="total_loans" widget="statinfo" string="Total Loans"/>
+                                </div>
                             </button>
-                            <button class="oe_stat_button" icon="fa-file-text-o" type="object" name="action_view_loan_applications">
-                                <field name="total_loan_applications" widget="statinfo" string="Total Applications"/>
+                            <button class="oe_stat_button fade-in-up" icon="fa-file-text-o" type="object" name="action_view_loan_applications" style="animation-delay: 0.5s;">
+                                <div class="text-center">
+                                    <i class="fa fa-file-text-o fa-2x mb-2" style="color: var(--banking-info);"></i>
+                                    <field name="total_loan_applications" widget="statinfo" string="Total Applications"/>
+                                </div>
                             </button>
-                            <button class="oe_stat_button" icon="fa-ticket" type="object" name="action_view_tickets">
-                                <field name="total_tickets" widget="statinfo" string="Total Tickets"/>
-                            </button>
-                            <button class="oe_stat_button" icon="fa-bar-chart" type="object" name="action_view_leads_graph">
-                                <field name="total_leads" widget="statinfo" string="Leads Graph"/>
-                            </button>
-                            <button class="oe_stat_button" icon="fa-pie-chart" type="object" name="action_view_customers_graph">
-                                <field name="total_customers" widget="statinfo" string="Customers Graph"/>
-                            </button>
-                            <button class="oe_stat_button" icon="fa-line-chart" type="object" name="action_view_loans_graph">
-                                <field name="total_loans" widget="statinfo" string="Loans Graph"/>
-                            </button>
-                            <button class="oe_stat_button" icon="fa-area-chart" type="object" name="action_view_tickets_graph">
-                                <field name="total_tickets" widget="statinfo" string="Tickets Graph"/>
-                            </button>
-                            <button class="oe_stat_button" icon="fa-bar-chart" type="object" name="action_view_accounts_graph">
-                                <field name="total_bank_accounts" widget="statinfo" string="Accounts Graph"/>
+                            <button class="oe_stat_button fade-in-up" icon="fa-ticket" type="object" name="action_view_tickets" style="animation-delay: 0.6s;">
+                                <div class="text-center">
+                                    <i class="fa fa-ticket fa-2x mb-2" style="color: var(--banking-warning);"></i>
+                                    <field name="total_tickets" widget="statinfo" string="Total Tickets"/>
+                                </div>
                             </button>
                         </div>
 
-                        <group class="o_banking_card">
-                                        <field name="total_customers" widget="statinfo" string="Total Customers"/>
-                                    </group>
-                                    <button name="action_view_all_external_partners" type="object" string="View All Customers" class="oe_stat_button" icon="fa-users"/>
+                        <div class="row mb-4">
+                            <div class="col-12">
+                                <h3 class="mb-3" style="color: var(--banking-gray-700); font-weight: 600;">
+                                    <i class="fa fa-chart-line mr-2"></i>Analytics & Reports
+                                </h3>
+                            </div>
+                        </div>
+                        
+                        <div class="oe_button_box" name="analytics_box" style="margin-bottom: 2rem;">
+                            <button class="oe_stat_button fade-in-up" icon="fa-bar-chart" type="object" name="action_view_leads_graph" style="animation-delay: 0.7s;">
+                                <div class="text-center">
+                                    <i class="fa fa-bar-chart fa-2x mb-2" style="color: var(--banking-primary);"></i>
+                                    <div class="o_stat_info">Leads Analysis</div>
+                                </div>
+                            </button>
+                            <button class="oe_stat_button fade-in-up" icon="fa-pie-chart" type="object" name="action_view_customers_graph" style="animation-delay: 0.8s;">
+                                <div class="text-center">
+                                    <i class="fa fa-pie-chart fa-2x mb-2" style="color: var(--banking-secondary);"></i>
+                                    <div class="o_stat_info">Customer Analysis</div>
+                                </div>
+                            </button>
+                            <button class="oe_stat_button fade-in-up" icon="fa-line-chart" type="object" name="action_view_loans_graph" style="animation-delay: 0.9s;">
+                                <div class="text-center">
+                                    <i class="fa fa-line-chart fa-2x mb-2" style="color: var(--banking-success);"></i>
+                                    <div class="o_stat_info">Loan Analysis</div>
+                                </div>
+                            </button>
+                            <button class="oe_stat_button fade-in-up" icon="fa-area-chart" type="object" name="action_view_tickets_graph" style="animation-delay: 1.0s;">
+                                <div class="text-center">
+                                    <i class="fa fa-area-chart fa-2x mb-2" style="color: var(--banking-warning);"></i>
+                                    <div class="o_stat_info">Ticket Analysis</div>
+                                </div>
+                            </button>
+                            <button class="oe_stat_button fade-in-up" icon="fa-bar-chart" type="object" name="action_view_accounts_graph" style="animation-delay: 1.1s;">
+                                <div class="text-center">
+                                    <i class="fa fa-bar-chart fa-2x mb-2" style="color: var(--banking-info);"></i>
+                                    <div class="o_stat_info">Account Analysis</div>
+                                </div>
+                            </button>
+                        </div>
 
-                        <group class="o_banking_card">
-                            <group string="Financial Overview">
-                                <field name="total_balance_accounts" widget="monetary" options="{'currency_field': 'currency_id'}"/>
-                                <field name="total_principal_amount" widget="monetary" options="{'currency_field': 'currency_id'}"/>
-                                <field name="currency_id" invisible="1"/>
-                            </group>
-                            <group string="Loan Status">
-                                <field name="loans_active"/>
-                                <field name="applications_submitted"/>
-                                <field name="applications_approved"/>
-                            </group>
-                        </group>
+                        <div class="row">
+                            <div class="col-md-6 mb-4">
+                                <div class="o_banking_card fade-in-up" style="animation-delay: 1.2s; height: 100%;">
+                                    <h4 class="mb-3" style="color: var(--banking-primary); font-weight: 600;">
+                                        <i class="fa fa-chart-bar mr-2"></i>Financial Overview
+                                    </h4>
+                                    <div class="row">
+                                        <div class="col-6 text-center">
+                                            <div class="mb-3">
+                                                <i class="fa fa-wallet fa-2x mb-2" style="color: var(--banking-success);"></i>
+                                                <div class="h5 mb-1" style="color: var(--banking-gray-700);">Total Balance</div>
+                                                <field name="total_balance_accounts" widget="monetary" options="{'currency_field': 'currency_id'}" class="h4" style="color: var(--banking-success); font-weight: 700;"/>
+                                            </div>
+                                        </div>
+                                        <div class="col-6 text-center">
+                                            <div class="mb-3">
+                                                <i class="fa fa-money fa-2x mb-2" style="color: var(--banking-primary);"></i>
+                                                <div class="h5 mb-1" style="color: var(--banking-gray-700);">Total Loans</div>
+                                                <field name="total_principal_amount" widget="monetary" options="{'currency_field': 'currency_id'}" class="h4" style="color: var(--banking-primary); font-weight: 700;"/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <field name="currency_id" invisible="1"/>
+                                </div>
+                            </div>
+                            
+                            <div class="col-md-6 mb-4">
+                                <div class="o_banking_card fade-in-up" style="animation-delay: 1.3s; height: 100%;">
+                                    <h4 class="mb-3" style="color: var(--banking-secondary); font-weight: 600;">
+                                        <i class="fa fa-tasks mr-2"></i>Operations Status
+                                    </h4>
+                                    <div class="row">
+                                        <div class="col-4 text-center">
+                                            <div class="mb-3">
+                                                <i class="fa fa-check-circle fa-2x mb-2" style="color: var(--banking-success);"></i>
+                                                <div class="h5 mb-1" style="color: var(--banking-gray-700);">Active Loans</div>
+                                                <div class="h4" style="color: var(--banking-success); font-weight: 700;"><field name="loans_active"/></div>
+                                            </div>
+                                        </div>
+                                        <div class="col-4 text-center">
+                                            <div class="mb-3">
+                                                <i class="fa fa-clock-o fa-2x mb-2" style="color: var(--banking-warning);"></i>
+                                                <div class="h5 mb-1" style="color: var(--banking-gray-700);">Submitted</div>
+                                                <div class="h4" style="color: var(--banking-warning); font-weight: 700;"><field name="applications_submitted"/></div>
+                                            </div>
+                                        </div>
+                                        <div class="col-4 text-center">
+                                            <div class="mb-3">
+                                                <i class="fa fa-thumbs-up fa-2x mb-2" style="color: var(--banking-info);"></i>
+                                                <div class="h5 mb-1" style="color: var(--banking-gray-700);">Approved</div>
+                                                <div class="h4" style="color: var(--banking-info); font-weight: 700;"><field name="applications_approved"/></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
 
-                        <group string="Tickets Status" class="o_banking_card">
-                            <field name="tickets_open"/>
-                        </group>
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="o_banking_card fade-in-up" style="animation-delay: 1.4s;">
+                                    <h4 class="mb-3" style="color: var(--banking-danger); font-weight: 600;">
+                                        <i class="fa fa-exclamation-triangle mr-2"></i>Support Status
+                                    </h4>
+                                    <div class="row text-center">
+                                        <div class="col-md-4">
+                                            <div class="p-3" style="background: linear-gradient(135deg, rgba(220, 38, 38, 0.1) 0%, rgba(220, 38, 38, 0.05) 100%); border-radius: var(--banking-radius); border: 1px solid rgba(220, 38, 38, 0.2);">
+                                                <i class="fa fa-ticket fa-2x mb-2" style="color: var(--banking-danger);"></i>
+                                                <div class="h5 mb-1" style="color: var(--banking-gray-700);">Open Tickets</div>
+                                                <div class="h3" style="color: var(--banking-danger); font-weight: 700;"><field name="tickets_open"/></div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <button name="action_view_all_external_partners" type="object" class="btn btn-outline-primary btn-lg w-100 h-100 d-flex flex-column justify-content-center align-items-center" style="border: 2px dashed var(--banking-primary); background: rgba(59, 130, 246, 0.05);">
+                                                <i class="fa fa-users fa-2x mb-2"></i>
+                                                <span>View All Customers</span>
+                                            </button>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="p-3" style="background: linear-gradient(135deg, rgba(5, 150, 105, 0.1) 0%, rgba(5, 150, 105, 0.05) 100%); border-radius: var(--banking-radius); border: 1px solid rgba(5, 150, 105, 0.2);">
+                                                <i class="fa fa-user-check fa-2x mb-2" style="color: var(--banking-success);"></i>
+                                                <div class="h5 mb-1" style="color: var(--banking-gray-700);">KYC Verified</div>
+                                                <div class="h3" style="color: var(--banking-success); font-weight: 700;"><field name="customers_kyc_verified"/></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
                     </div>
                 </sheet>
             </form>
