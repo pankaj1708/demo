@@ -106,14 +106,14 @@
                                     <div class="row">
                                         <div class="col-6 text-center">
                                             <div class="mb-3">
-                                                <i class="fa fa-wallet fa-2x mb-2" style="color: var(--banking-success);"></i>
+                                                <i class="fa fa-wallet fa-2x mb-2" style="color: var(--banking-success);" title="Total Balance">Total Balance</i>
                                                 <div class="h5 mb-1" style="color: var(--banking-gray-700);">Total Balance</div>
                                                 <field name="total_balance_accounts" widget="monetary" options="{'currency_field': 'currency_id'}" class="h4" style="color: var(--banking-success); font-weight: 700;"/>
                                             </div>
                                         </div>
                                         <div class="col-6 text-center">
                                             <div class="mb-3">
-                                                <i class="fa fa-money fa-2x mb-2" style="color: var(--banking-primary);"></i>
+                                                <i class="fa fa-money fa-2x mb-2" style="color: var(--banking-primary);" title="Total Loans">Total Loans</i>
                                                 <div class="h5 mb-1" style="color: var(--banking-gray-700);">Total Loans</div>
                                                 <field name="total_principal_amount" widget="monetary" options="{'currency_field': 'currency_id'}" class="h4" style="color: var(--banking-primary); font-weight: 700;"/>
                                             </div>
@@ -131,21 +131,21 @@
                                     <div class="row">
                                         <div class="col-4 text-center">
                                             <div class="mb-3">
-                                                <i class="fa fa-check-circle fa-2x mb-2" style="color: var(--banking-success);"></i>
+                                                <i class="fa fa-check-circle fa-2x mb-2" style="color: var(--banking-success);" title="Active Loans">Active Loans</i>
                                                 <div class="h5 mb-1" style="color: var(--banking-gray-700);">Active Loans</div>
                                                 <div class="h4" style="color: var(--banking-success); font-weight: 700;"><field name="loans_active"/></div>
                                             </div>
                                         </div>
                                         <div class="col-4 text-center">
                                             <div class="mb-3">
-                                                <i class="fa fa-clock-o fa-2x mb-2" style="color: var(--banking-warning);"></i>
+                                                <i class="fa fa-clock-o fa-2x mb-2" style="color: var(--banking-warning);" title="Submitted Applications">Submitted Applications</i>
                                                 <div class="h5 mb-1" style="color: var(--banking-gray-700);">Submitted</div>
                                                 <div class="h4" style="color: var(--banking-warning); font-weight: 700;"><field name="applications_submitted"/></div>
                                             </div>
                                         </div>
                                         <div class="col-4 text-center">
                                             <div class="mb-3">
-                                                <i class="fa fa-thumbs-up fa-2x mb-2" style="color: var(--banking-info);"></i>
+                                                <i class="fa fa-thumbs-up fa-2x mb-2" style="color: var(--banking-info);" title="Approved Applications">Approved Applications</i>
                                                 <div class="h5 mb-1" style="color: var(--banking-gray-700);">Approved</div>
                                                 <div class="h4" style="color: var(--banking-info); font-weight: 700;"><field name="applications_approved"/></div>
                                             </div>
@@ -164,7 +164,7 @@
                                     <div class="row text-center">
                                         <div class="col-md-4">
                                             <div class="p-3" style="background: linear-gradient(135deg, rgba(220, 38, 38, 0.1) 0%, rgba(220, 38, 38, 0.05) 100%); border-radius: var(--banking-radius); border: 1px solid rgba(220, 38, 38, 0.2);">
-                                                <i class="fa fa-ticket fa-2x mb-2" style="color: var(--banking-danger);"></i>
+                                                <i class="fa fa-ticket fa-2x mb-2" style="color: var(--banking-danger);" title="Open Tickets">Open Tickets</i>
                                                 <div class="h5 mb-1" style="color: var(--banking-gray-700);">Open Tickets</div>
                                                 <div class="h3" style="color: var(--banking-danger); font-weight: 700;"><field name="tickets_open"/></div>
                                             </div>
@@ -177,7 +177,7 @@
                                         </div>
                                         <div class="col-md-4">
                                             <div class="p-3" style="background: linear-gradient(135deg, rgba(5, 150, 105, 0.1) 0%, rgba(5, 150, 105, 0.05) 100%); border-radius: var(--banking-radius); border: 1px solid rgba(5, 150, 105, 0.2);">
-                                                <i class="fa fa-user-check fa-2x mb-2" style="color: var(--banking-success);"></i>
+                                                <i class="fa fa-user-check fa-2x mb-2" style="color: var(--banking-success);" title="KYC Verified Customers">KYC Verified Customers</i>
                                                 <div class="h5 mb-1" style="color: var(--banking-gray-700);">KYC Verified</div>
                                                 <div class="h3" style="color: var(--banking-success); font-weight: 700;"><field name="customers_kyc_verified"/></div>
                                             </div>
