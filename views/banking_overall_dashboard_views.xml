@@ -59,7 +59,7 @@
                         <div class="row mb-4">
                             <div class="col-12">
                                 <h3 class="mb-3" style="color: var(--banking-gray-700); font-weight: 600;">
-                                    <i class="fa fa-chart-line mr-2"></i>Analytics & Reports
+                                    <i class="fa fa-chart-line mr-2"></i>Analytics &amp; Reports
                                 </h3>
                             </div>
                         </div>

@@ -120,7 +120,7 @@
                                 <div class="col-md-6">
                                     <div class="card" style="border: 1px solid var(--banking-gray-200); border-radius: var(--banking-radius);">
                                         <div class="card-header" style="background: linear-gradient(135deg, var(--banking-primary) 0%, var(--banking-primary-dark) 100%); color: white;">
-                                            <h5 class="mb-0"><i class="fa fa-calculator mr-2"></i>Income & Expenses</h5>
+                                            <h5 class="mb-0"><i class="fa fa-calculator mr-2"></i>Income &amp; Expenses</h5>
                                         </div>
                                         <div class="card-body">
                                             <field name="monthly_net_income" widget="monetary" options="{'currency_field': 'currency_id'}" class="mb-3"/>
